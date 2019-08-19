@@ -8,7 +8,7 @@ public class BMI {
 		Scanner scan = new Scanner(System.in);
 		System.out.println("비만 측정 프로그램입니다");
 		String name = "";
-		int weight = 0;
+		double weight = 0;
 		double tall = 0;
 		System.out.println("이름을 입력하세요");
 		name = scan.next();
@@ -17,20 +17,21 @@ public class BMI {
 		System.out.println("키를 m로 입력하세요 ex) 176cm -> 1.76m ");
 		tall = scan.nextDouble();
 		
-		double bmi = Math.round(weight/(tall*tall)*10)/10;
+		double bmi = weight/(tall*tall);
+		String eval = "";
 		
 		if(bmi > 30.0) {
-			System.out.println(bmi+"고도비만");
+			eval="고도비만";
 		}else if(bmi > 25.0) {
-			System.out.println("비만");
+			eval="바먼";
 		}else if(bmi > 23.0) {
-			System.out.println("과체중");
+			eval="고도비만";
 		}else if(bmi > 18.5) {
-			System.out.println("정상");
+			eval="정상";
 		} else {
-			System.out.println("저체중");
-		}
+			eval="저체중";
+		}System.out.printf("%s님은  bmi는 %.1f %s 입니다", name, bmi, eval);
+
 
 	}
-
 }

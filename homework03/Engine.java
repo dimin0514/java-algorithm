@@ -48,7 +48,16 @@ public class Engine {
 			break;
 			case 3:
 				System.out.println("HowMuch"); 
-				student.getHowMuch();
+				
+				int price = 0;
+				int num = 0;
+				System.out.println("얼마에요?");
+				price = scanner.nextInt();
+				System.out.println("몇개 드릴까요?");
+				num = scanner.nextInt();
+				result = student.getHowMuch(price,num);
+				System.out.println(result); 
+				
 	
 			break;
 			case 4:

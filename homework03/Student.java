@@ -45,23 +45,14 @@ public class Student {
 	
 
 	}
-	public void getHowMuch() {
-		int price = 0;
-		int num = 0;
-		Scanner scanner = new Scanner(System.in); 
-
-		System.out.println("얼마에요?");
-		price = scanner.nextInt();
-		System.out.println("몇개 드릴까요?");
-		num = scanner.nextInt();
-		
+	public String getHowMuch(int price, int num) {
+	
 		int total = price * num;
 		int dc = total / 10;
 		int finalPrice = total - dc;
 		
-		System.out.printf("그럼 총 금액은 %d 원 입니다.\n",total);
-		System.out.printf("할인 금액은 %d 원 입니다.\n",dc);
-		System.out.printf("최종 금액은 %d 원 입니다.\n",finalPrice);
+		String result = String.format("총 금액은 %d 할인금액 %d 최종금액 %d원 입니다.\n",total,dc,finalPrice);
+		return result;
 	}
 	public String getJoin(String id, String password, String name, String birth, String blood, double tall, double weight) {
 

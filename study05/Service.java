@@ -44,7 +44,8 @@ public class Service {
 		}
 		
 		result = String.format("학생      국어     영어     수학     총점     평균      합격여부 \n"
-				+ "================================================ \n %s   %d    %d    %d   %d   %d   %s", 
+				+ "================================================ \n  "
+				+ "%s   %d    %d    %d   %d   %d   %s", 
 				name, kor, eng ,math, sum , avg, passFail);	
 		
 		return result;

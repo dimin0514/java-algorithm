@@ -43,19 +43,21 @@ public class Engine {
 				break;
 				
 			case 3:
-				System.out.println("아이디,이름을 입력하면 비번을 알려줌");
-				String searchName = scanner.next(); 
+				System.out.println("이름,아이디 입력하면 비번을 알려줌");
+				System.out.println("이름 입력하세요");
+				String searchName = scanner.next();
+				System.out.println("아이디 입력하세요");
 				String searchId = scanner.next();
-				if(searchName.equals("a") &&
-						searchId.equals("a")) {
+				if(searchName.equals(member.getName()) &&
+						searchId.equals(member.getId())) {
 					System.out.printf("찾는 아이디 : %s \n"
-							+ "주민번호: %s \n",member.getId(), member.getSsn());
+							+ "비밀번호: %s \n",member.getId(), member.getPassword());
 				}else {
 					System.out.println("찾는 아이디가 없습니다.");
 				}
 				
 			case 4:
-				System.out.println("Bmi 구하기");
+				System.out.println("BMI 구하기");
 				System.out.println(service.getBmi(member)); 
 				
 				
@@ -76,6 +78,7 @@ public class Engine {
 			}
 			
 		}
+		
 	}
 
 }

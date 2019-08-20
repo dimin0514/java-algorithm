@@ -13,8 +13,11 @@ public class Engine {
 			case 0 : System.out.println("종료");return;
 			case 1 : System.out.println("BMI: 이름, 2.몸무게 입력");
 			//이 공간에 bmi 로직이 들어옴 근데 여기다 다 쓰면 절차지향적 코딩 student에서 가져와야 객체지향 코딩임
+			System.out.println("이름입력");
 			String name = scanner.next();
+			System.out.println("키");
 			double height= scanner.nextDouble();
+			System.out.println("몸무게");
 			double weight = scanner.nextDouble();
 			String result = student.getBmi(name, height, weight);
 			System.out.println(result);
@@ -36,8 +39,8 @@ public class Engine {
 				result = student.daechul(name, addr, age, money, shin); 
 				System.out.println(result);
 				break;
-
-			
+				
+	
 			}
 		}
 	}

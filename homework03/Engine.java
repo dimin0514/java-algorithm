@@ -7,6 +7,7 @@ public class Engine {
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 		Student student = new Student();
+		String result = "";
 		
 		while(true) {
 			System.out.println("0.종료 1.사칙연산 2.BMI 3.HowMuch 4.Join 5.LeapYear 6.MonthEndDay 7.PassOrFail 8.Ranking 9.ScaoreCalc 10.Tax 11.TimeCalc");
@@ -25,7 +26,7 @@ public class Engine {
 				a = scanner.nextInt();
 				System.out.println("두번째 수를 입력하세요");
 				b = scanner.nextInt();
-				String result = student.getAc(op,a,b);
+				result = student.getAc(op,a,b);
 				System.out.println(result);
 				
 				 
@@ -169,9 +170,9 @@ public class Engine {
 			
 			case 10:
 				System.out.println("세금계산기");
-				System.out.println("이름>");
+				System.out.println("이름:");
 				name = scanner.next();
-				System.out.println("연봉>");
+				System.out.println("연봉:");
 				int income = scanner.nextInt();
 				result = student.getTax(name, income);
 				System.out.println(result);

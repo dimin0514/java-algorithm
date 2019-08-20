@@ -38,7 +38,7 @@ public class Student {
 		if(bmi > 30.0) {
 			eval="고도비만";
 		}else if(bmi > 25.0) {
-			eval="바먼";
+			eval="비만";
 		}else if(bmi > 23.0) {
 			eval="고도비만";
 		}else if(bmi > 18.5) {
@@ -73,7 +73,7 @@ public class Student {
 
 	}
 	public String getLeapYear(int year) {
-		String result = "";
+
 		if(year%4==0){
 			result ="윤년";
 			if(year%100==0) {
@@ -179,8 +179,8 @@ public class Student {
 		return result;
 	}
 	public String getTimeCalc(int time) {
-		int min = time/ 60;
-		int hour = (time/60) /60;
+		int hour = time/60/60;
+		int min = time/60%60;
 		int sec = time%60;
 		String result = String.format("%d시간 %d분 %d초", hour, min, sec);
 		

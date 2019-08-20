@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class Student {
 	public String getAc(String op, int a, int b, int eval) {
+
 		
 		switch (op) {
 		case "+": eval = a+b;			
@@ -48,6 +49,7 @@ public class Student {
 		int price = 0;
 		int num = 0;
 		Scanner scanner = new Scanner(System.in); 
+
 		System.out.println("얼마에요?");
 		price = scanner.nextInt();
 		System.out.println("몇개 드릴까요?");
@@ -96,5 +98,99 @@ public class Student {
 		
 	}
 	
+	public String getMonthEndDay(int month) {
+		String eval = "";
+		switch(month){
+		case 1 : eval= "31일"; break;
+		case 2 : eval= "29일"; break;
+		case 3 : eval= "31일"; break;
+		case 4 : eval= "30일"; break;
+		case 5 : eval= "31일"; break;
+		case 6 : eval= "30일"; break;
+		case 7 : eval= "31일"; break;
+		case 8 : eval= "31일"; break;
+		case 9 : eval= "30일"; break;
+		case 10 : eval= "31일"; break;
+		case 11 : eval= "30일"; break;
+		case 12 : eval= "31일"; break;
+		}
+		String result = String.format("%d월은 %s까지 입니다",month,eval);
+		return result;
+	}
+	
+	public String getPassOrFail(String name,String subjects[],int scores[]) {
 
-}
+		
+		int sum = scores[0]+scores[1]+scores[2];
+		int avg = sum /3 ;
+		
+		String passFail = "";
+		if(avg >= 90) {
+			passFail="장학생";
+		}else if(avg >= 70) { 
+			passFail = "합격";
+		}else { passFail = "불합격";
+		}
+		
+		String result = String.format("학생      국어     영어     수학     총점     평균      합격여부 \n================================================ \n %s   %d    %d    %d   %d   %d   %s", name, scores[0], scores[1],scores[2], sum , avg, passFail);	
+		return result;
+	}
+	
+	public String getRank( double[] records) {
+		for(int i = 0; i < records.length; i++) {
+			for(int j = 0 ; j < records.length -1; j++) {
+				if(records[j] > records[j+1]) {
+					double tempd = records[j];
+					records[j] = records[j+1];
+					records[j+1] = tempd;
+											
+					
+				}
+			}
+		}
+		String result ="";
+		for(int i = 0 ;i < 3; i++) {
+			 result += String.format("%d등 기록 : %.1f \n" , i+1, records[i] );
+		}
+		
+		return result;
+	}
+	
+	public String getScoreCalc(int[] numbers) {
+		int sum = 0;
+		String result ="";
+		for(int i = 0 ; i< numbers.length; i++) {
+			
+			sum += numbers[i] ;
+		}
+		int avg = sum / numbers.length;
+		for(int i = 0 ; i < numbers.length; i++) {
+			if(i == numbers.length-1) {
+				 result += numbers[i] + "=";
+			}else {
+				result += numbers[i] + "+";
+			}
+		}
+		result += String.format("%d이고 평균은 %d입니다.", sum , avg);
+		
+		return result;
+	}
+
+	public String getTax(String name, int income ) {
+		double tax = income * (9.7 / 100.0);
+		
+		String result = String.format("연봉 %d만원을 받는 %s님의 세금은 %.1f만원 입니다.", income, name, tax);
+		return result;
+	}
+	public String getTimeCalc(int time) {
+		int min = time/ 60;
+		int hour = (time/60) /60;
+		int sec = time%60;
+		String result = String.format("%d시간 %d분 %d초", hour, min, sec);
+		
+		
+		return result;
+	}
+	
+	
+}	

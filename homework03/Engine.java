@@ -17,7 +17,6 @@ public class Engine {
 				String op="";
 				int a=0;
 				int b=0;
-				int eval =0;
 
 				System.out.println("사칙연산을 선택하세요");
 				System.out.println("+ - * /");
@@ -26,7 +25,7 @@ public class Engine {
 				a = scanner.nextInt();
 				System.out.println("두번째 수를 입력하세요");
 				b = scanner.nextInt();
-				String result = student.getAc(op,a,b,eval);
+				String result = student.getAc(op,a,b);
 				System.out.println(result);
 				
 				 

@@ -3,9 +3,13 @@ package homework03;
 import java.util.Scanner;
 
 public class Student {
-	public String getAc(String op, int a, int b, int eval) {
+	Scanner scanner = new Scanner(System.in);
+	String result = "";
+	public String getAc(String op, int a, int b) {
 
-		
+		int eval = 0;
+		int nam = 0;
+
 		switch (op) {
 		case "+": eval = a+b;			
 		break;
@@ -13,17 +17,19 @@ public class Student {
 		break;
 		case "*": eval = a*b;	
 		break;
-		case "/": eval = a/b; 
+		case "/": eval = a/b;  nam = a%b;  
 		break;
 		}
 
-		
-		String result = String.format("%d %s %d = %d",a, op ,b, eval);		
+		if(op.equals("/")) {
+			result = String.format("%d %s %d = %d[%d]",a, op ,b, eval, nam);		
+		}else {
+			result = String.format("%d %s %d = %d", a, op ,b, eval);
+		}
 		
 		return result;
-		
-	}
 
+	}
 
 	public String getBmi(String name,double weight,double tall) {
 		double bmi = weight/(tall*tall);
@@ -40,7 +46,7 @@ public class Student {
 		} else {
 			eval="저체중";
 		}
-		String result = String.format("%s님은  bmi는 %.1f %s 입니다", name, bmi, eval);
+		result = String.format("%s님은  bmi는 %.1f %s 입니다", name, bmi, eval);
 		return result;
 	
 
@@ -51,7 +57,7 @@ public class Student {
 		int dc = total / 10;
 		int finalPrice = total - dc;
 		
-		String result = String.format("총 금액은 %d 할인금액 %d 최종금액 %d원 입니다.\n",total,dc,finalPrice);
+		result = String.format("총 금액은 %d 할인금액 %d 최종금액 %d원 입니다.\n",total,dc,finalPrice);
 		return result;
 	}
 	public String getJoin(String id, String password, String name, String birth, String blood, double tall, double weight) {
@@ -62,9 +68,8 @@ public class Student {
 		}else { 
 			checkAudlt = "미성년";
 		}
-		String result = String.format("=== 회원정보 === \n 아이디: %s \n 비밀번호:%s \n 이름: %s \n 생년월일: %s \n 성인여부: %s \n 키: %.1f \n 몸무게: %.1f \n 혈액형: %s",id,password,name,birth,checkAudlt,tall,weight,blood);
+		result = String.format("=== 회원정보 === \n 아이디: %s \n 비밀번호:%s \n 이름: %s \n 생년월일: %s \n 성인여부: %s \n 키: %.1f \n 몸무게: %.1f \n 혈액형: %s",id,password,name,birth,checkAudlt,tall,weight,blood);
 		return result;
-		
 
 	}
 	public String getLeapYear(int year) {
@@ -105,7 +110,7 @@ public class Student {
 		case 11 : eval= "30일"; break;
 		case 12 : eval= "31일"; break;
 		}
-		String result = String.format("%d월은 %s까지 입니다",month,eval);
+		result = String.format("%d월은 %s까지 입니다",month,eval);
 		return result;
 	}
 	
@@ -123,7 +128,7 @@ public class Student {
 		}else { passFail = "불합격";
 		}
 		
-		String result = String.format("학생      국어     영어     수학     총점     평균      합격여부 \n================================================ \n %s   %d    %d    %d   %d   %d   %s", name, scores[0], scores[1],scores[2], sum , avg, passFail);	
+		result = String.format("학생      국어     영어     수학     총점     평균      합격여부 \n================================================ \n %s   %d    %d    %d   %d   %d   %s", name, scores[0], scores[1],scores[2], sum , avg, passFail);	
 		return result;
 	}
 	

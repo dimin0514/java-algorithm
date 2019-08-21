@@ -1,5 +1,4 @@
-package study05;
-
+package homework04_member;
 public class Member {
 	private String name, id, password, ssn, blood; 
 	private double tall, weight;

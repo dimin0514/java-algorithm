@@ -1,4 +1,4 @@
-package study05;
+package study06;
 
 public class Member {
 	private String name, id, password, ssn, blood; 
